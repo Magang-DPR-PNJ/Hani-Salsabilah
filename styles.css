@@ -1,0 +1,292 @@
+/* Reset CSS untuk konsistensi antar browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mengatur font dan background dasar */
+body {
+    font-family: Arial, sans-serif;
+    position: relative; /* Position relative for positioning the pseudo-element */
+    background-color: #f4f4f4; /* Fallback background color */
+    color: #333;
+}
+
+/* Adding a pseudo-element for the background image */
+body::before {
+    content: '';
+    position: fixed; /* Fixes the pseudo-element relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('batik3.png'); /* Using the uploaded image as background */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background image fixed on scroll */
+    opacity: 0.2; /* Set opacity to 20% */
+    z-index: -1; /* Places the pseudo-element behind other elements */
+}
+
+/* Gaya untuk header, termasuk logo dan tombol login */
+header {
+    position: relative; /* Required for positioning the pseudo-element */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('batik3.png'); /* Add background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.2; /* Set opacity to 20% */
+    z-index: -1; /* Position behind header content */
+}
+
+/* Ensure header content stays above the pseudo-element */
+header .logo-container,
+header nav {
+    position: relative;
+    z-index: 1;
+}
+
+header img {
+    height: 50px;
+}
+
+.login {
+    background-color: #f0ad4e;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.login:hover {
+    background-color: #ec971f;
+}
+
+/* Gaya untuk bagian banner */
+.banner {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Gaya untuk kontainer utama */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Gaya untuk heading */
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+/* Gaya untuk tata letak grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 20px;
+}
+
+/* Gaya untuk kartu */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px; /* Increase padding for larger cards */
+    text-align: center;
+    min-height: 250px; /* Ensure a minimum height for the cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Animasi saat hover pada kartu */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container h2:first-of-type {
+    margin-top: 0; /* Remove top margin for the first heading */
+}
+
+.nav-links a {
+    margin-right: 15px;
+    color: #fff !important; /* Pastikan warna teks tetap putih */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px; /* Tambahkan padding untuk ruang di dalam kotak */
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Latar belakang gelap dengan transparansi */
+    border-radius: 5px; /* Membulatkan sudut kotak */
+    transition: background-color 0.3s, color 0.3s; /* Animasi transisi */
+    position: relative; /* Pastikan posisinya relatif untuk z-index */
+    z-index: 1; /* Tingkatkan z-index agar berada di atas elemen lainnya */
+}
+
+.nav-links a:hover {
+    background-color: rgba(0, 0, 0, 0.7) !important; /* Menjadi lebih gelap saat di-hover */
+    color: #fff !important; /* Pastikan warna teks tetap putih */
+}
+
+.upload-box {
+    width: calc(100% - 20px); /* Full width minus padding */
+    max-width: 100%; /* Ensure it doesn’t exceed the container’s width */
+    height: 150px; /* Adjust height if needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Center the box within its container */
+}
+
+
+.upload-button {
+    background-color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 10px; /* Posisikan di bawah */
+    right: 10px;  /* Posisikan di kanan */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #506FD9; /* Warna senada dengan sidebar */
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #4051A4; /* Warna lebih gelap saat hover */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px; /* Increased margin to create more space below the heading */
+}
+
+.sidebar .menu-icon {
+    width: 20px; /* Adjust size as needed */
+    height: auto;
+    vertical-align: middle; /* Align icon with text */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.sidebar {
+    width: 250px; /* Sesuaikan lebar sidebar sesuai kebutuhan */
+    height: 100vh; /* Atur tinggi sidebar sesuai dengan tinggi viewport */
+    overflow-y: auto; /* Aktifkan scroll vertikal jika konten melebihi tinggi */
+    background-color: #f4f4f4; /* Contoh latar belakang */
+    padding: 20px; /* Contoh padding */
+    box-sizing: border-box; /* Agar padding dan border dimasukkan dalam lebar dan tinggi elemen */
+}
+
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    margin-left: 10px; /* Add margin-left to the Register button */
+    background-color: #f0ad4e;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.login.register {
+    background-color: #3de15e;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
